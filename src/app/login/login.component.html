@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <section class="col-4 mx-auto">
+      <h2 class="text-center">Login</h2>
+      <div *ngIf="msg!=undefined" class="alert alert-warning">{{msg}}</div>
+      <form #frm="ngForm" (ngSubmit)="doLogin()">
+<div>User Name</div>
+<div><input type="text" name="txtname" [(ngModel)]="uname" #loginuid="ngModel" required class="form-control"/></div>
+<div class="alert alert-danger" *ngIf="loginuid.invalid && loginuid.touched">User Name is required</div>
+
+<div>Password</div>
+<div><input type="password" name="txtpwd" [(ngModel)]="pwd" #loginpwd="ngModel" required class="form-control"/></div>
+<div class="alert alert-danger" *ngIf="loginpwd.invalid && loginpwd.touched">Password is required</div>
+
+<div><input type="submit" value="Login" [disabled]="!frm.valid"/></div>
+      </form>
+  </section>

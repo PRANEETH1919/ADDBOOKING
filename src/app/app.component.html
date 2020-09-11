@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <header class="jumbotron text-center">
+<h1>Flight Management System</h1>
+<div class="col-md-8 text-right">
+<span *ngIf="loginflag">
+  <a class="nav-item nav-link text-dark"(click)="logout()">Logout</a>
+</span>
+<span *ngIf="!loginflag">
+  <a class="nav-item nav-link text-dark" routerLink="/login">Login</a>
+</span>
+</div>
+  </header>
+  <nav class="col-md-10 mx-auto bg-dark p-2 row">
+    <a class="nav-item nav-link text-white" *ngIf="loginflag" routerLinkActive="active" routerLink="/addbooking">Add Booking</a>
+  </nav>
+  <router-outlet></router-outlet>
+</html>
